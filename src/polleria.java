@@ -21,7 +21,7 @@ public class polleria {
             case "2 Pollo" -> costo=95.0;
         }
         cIGV=IGV*costo;
-        tipoServicio = JOptionPane.showConfirmDialog(null, "¿Que tipo de servicio desea?", "Consulta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+        tipoServicio = JOptionPane.showConfirmDialog(null, "¿Desea servicio a mesa?", "Consulta",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
         if (tipoServicio==JOptionPane.YES_OPTION){
             cServicio=0.10*(costo+cIGV);
             cPropina=0.05*costo;
@@ -49,7 +49,8 @@ public class polleria {
             mensaje+="Servicio de Atención en Mesa\nMonto a Pagar: " + f2.format(cTotal) + "\nCosto Servicio: " + f2.format(cServicio) + "\nPropina: " + f2.format(cPropina) + "\n IGV: " + f2.format(cIGV) + "\n Ha ganado: " + punto + " punto";
         }
         else {
-            mensaje+="Servicio de Atención en Mesa\nMonto a Pagar: " + f2.format(cTotal) + "\nCosto Servicio: " + f2.format(cServicio) + "\n IGV: " + f2.format(cIGV) + "\n Ha ganado: " + punto + " puntos";
+            mensaje+="Servicio de Delivery\nMonto a Pagar: " + f2.format(cTotal) + "\nCosto de Envio: " + f2.format(cTaxi) + "\n IGV: " + f2.format(cIGV) + "\n Ha ganado: " + punto + " puntos";
         }
+        JOptionPane.showMessageDialog(null,mensaje,"Boleta de Pago",JOptionPane.INFORMATION_MESSAGE);
     }
 }
