@@ -11,9 +11,15 @@ public class Main {
 
         DecimalFormat f2 = new DecimalFormat("0.00");
         //Entrada de Datos
-        nHoras = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuantas horas diarias trabaja?","Entrada de Datos",JOptionPane.QUESTION_MESSAGE));
-        nDias = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuantos dias trabaja?","Entrada de Datos",JOptionPane.QUESTION_MESSAGE));
-        nHijos = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuantos hijos tiene?","Entrada de Datos",JOptionPane.QUESTION_MESSAGE));
+        do {
+            nHoras = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuantas horas diarias trabaja?","Entrada de Datos",JOptionPane.QUESTION_MESSAGE));
+        } while (nHoras<0||nHoras>12);
+        do {
+            nDias = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuantos dias trabaja?","Entrada de Datos",JOptionPane.QUESTION_MESSAGE));
+        }while (nDias<0||nDias>31);
+        do {
+            nHijos = Integer.parseInt(JOptionPane.showInputDialog(null,"¿Cuantos hijos tiene?","Entrada de Datos",JOptionPane.QUESTION_MESSAGE));
+        }while (nHijos<=0||nHijos>10);
         tarifa = Double.parseDouble(JOptionPane.showInputDialog(null,"¿Cual es la tarifa?","Entrada de Datos",JOptionPane.QUESTION_MESSAGE));
         //Selector yes or no
         AFP = JOptionPane.showConfirmDialog(null,"¿Está afiliado a una AFP?","Entrada de Datos",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
