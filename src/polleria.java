@@ -49,7 +49,7 @@ public class polleria {
             mensaje+="Servicio de Atención en Mesa\nMonto a Pagar: " + f2.format(cTotal) + "\nCosto Servicio: " + f2.format(cServicio) + "\nPropina: " + f2.format(cPropina) + "\n IGV: " + f2.format(cIGV) + "\n Ha ganado: " + punto + " punto";
         }
         else {
-            mensaje+="Servicio de Atención en Mesa\nMonto a Pagar: " + f2.format(cTotal) + "\nCosto Servicio: " + f2.format(cServicio) + "\n IGV: " + f2.format(cIGV) + "\n Ha ganado: " + punto + " punto";
+            mensaje+="Servicio de Atención en Mesa\nMonto a Pagar: " + f2.format(cTotal) + "\nCosto Servicio: " + f2.format(cServicio) + "\n IGV: " + f2.format(cIGV) + "\n Ha ganado: " + punto + " puntos";
         }
     }
 }
