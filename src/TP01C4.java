@@ -6,7 +6,11 @@ public class TP01C4 {
         //variables y entrada
         int  u, d, c, m;
         String U="", D="", C="", M="";
-        int numeroNormal = Integer.parseInt(JOptionPane.showInputDialog(null, "Por favor. Ingrese el numero: ", "Números en Romanos", JOptionPane.QUESTION_MESSAGE));
+        int numeroNormal;
+        do {
+            numeroNormal = Integer.parseInt(JOptionPane.showInputDialog(null, "Por favor. Ingrese el numero: ", "Números en Romanos", JOptionPane.QUESTION_MESSAGE));
+
+        }while (numeroNormal >3999 || numeroNormal<1);
         //Operaciones
         u = ((numeroNormal%1000)%100)%10;
         d = ((numeroNormal%1000)%100)/10;
@@ -51,8 +55,8 @@ public class TP01C4 {
             case 2 -> M = "MM";
             case 3 -> M = "MMM";
         }
-
-        JOptionPane.showMessageDialog(null, M+C+D+U, "Numeros en Romanos",JOptionPane.INFORMATION_MESSAGE);
+        String mensaje = "Número: "+numeroNormal+"\nEquivalente en números romanos: ";
+        JOptionPane.showMessageDialog(null, mensaje+M+C+D+U, "Numeros en Romanos",JOptionPane.INFORMATION_MESSAGE);
 
     }
 

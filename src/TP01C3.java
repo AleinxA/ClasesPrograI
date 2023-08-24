@@ -4,90 +4,24 @@ public class TP01C3 {
     public static void main(String[] args) {
 
         //VARIABLES
-        int cmll, mll,cml,dml,ml,c,d,u,cents;
-        String CMLL, MLL = "", CML,DML, ML = "",C = "",D = "",U = "",CENTS;
+        int mll,cml,dml,ml,c,d,u, cents;
+        String MLL = "", CML = "",DML = "", ML = "",C = "",D = "",U = "";
         //ENTRADA DE DATOS
         double soles = Double.parseDouble(JOptionPane.showInputDialog(null,"Ingrese el valor: ","Entrada de Datos",JOptionPane.QUESTION_MESSAGE));
         mll=(int)soles/1000000;
-        dml = (int) soles/10000;
-        ml=(int) soles/1000;
-        c= (int) (soles%1000)/100;
-        d= (int) ((soles%1000)%100)/10;
+        cml =(int)(soles%1000000)/100000;
+        dml = (int) ((soles%1000000)%100000)/10000;
+        if (dml>2){
+            ml = (int) (((soles%1000000)%100000)%10000)/1000;
+        }else ml = (int) (soles%100000)/1000;
+        c = (int) (soles%1000)/100;
+        d = (int) ((soles%1000)%100)/10;
         if (d>2){
             u= (int) ((soles%1000)%100)%10;
         }
-        else u=(int) soles;
-        switch(mll){
-            case 1 -> MLL = "UN MILLÓN";
-            case 2 -> MLL = "DOS MILLONES";
-            case 3 -> MLL = "TRES MILLONES";
-            case 4 -> MLL = "CUATRO MILLONES";
-            case 5 -> MLL = "CINCO MILLONES";
-            case 6 -> MLL = "SEIS MILLONES";
-            case 7 -> MLL = "SIETE MILLONES";
-            case 8 -> MLL = "OCHO MILLONES";
-            case 9 -> MLL = "NUEVE MILLONES";
-        }
-        switch (dml){
-            case 3 -> D = "TREINTA MIL";
-            case 4 -> D = "CUARENTA MIL";
-            case 5 -> D = "CINCUENTA MIL";
-            case 6 -> D = "SESENTA MIL";
-            case 7 -> D = "SETENTA MIL";
-            case 8 -> D = "OCHENTA MIL";
-            case 9 -> D = "NOVENTA MIL";
-        }
-        switch (ml){
-            case 1 -> ML ="MIL";
-            case 2 -> ML ="DOS MIL";
-            case 3 -> ML ="TRES MIL";
-            case 4 -> ML ="CUATRO MIL";
-            case 5 -> ML ="CINCO MIL";
-            case 6 -> ML ="SEIS MIL";
-            case 7 -> ML ="SIETE MIL";
-            case 8 -> ML ="OCHO MIL";
-            case 9 -> ML ="NUEVE MIL";
-            case 10 -> ML = "DIEZ MIL";
-            case 11 -> ML = "ONCE MIL";
-            case 12 -> ML = "DOCE MIL";
-            case 13 -> ML = "TRECE MIL";
-            case 14 -> ML = "CATORCE MIL";
-            case 15 -> ML = "QUINCE MIL";
-            case 16 -> ML = "DIECISEIS MIL";
-            case 17 -> ML = "DIECISIETE MIL";
-            case 18 -> ML = "DIECIOCHO MIL";
-            case 19 -> ML = "DIECINUEVE MIL";
-            case 20 -> ML = "VEINTE MIL";
-            case 21 -> ML = "VEINTIUNO MIL";
-            case 22 -> ML = "VEINTIDOS MIL";
-            case 23 -> ML = "VEINTITRES MIL";
-            case 24 -> ML = "VEINTCUATRO MIL";
-            case 25 -> ML = "VEINTICINCO MIL";
-            case 26 -> ML = "VEINTISEIS MIL";
-            case 27 -> ML = "VEINTISIETE MIL";
-            case 28 -> ML = "VEINTIOCHO MIL";
-            case 29 -> ML = "VEINTINUEVE MIL";
-        }
-        switch(c){
-            case 1 -> C = "CIEN";
-            case 2 -> C = "DOCIENTOS";
-            case 3 -> C = "TRECIENTOS";
-            case 4 -> C = "CUATROCIENTOS";
-            case 5 -> C = "QUINIENTOS";
-            case 6 -> C = "SEICIENTOS";
-            case 7 -> C = "SETECIENTOS";
-            case 8 -> C = "OCHOCIENTOS";
-            case 9 -> C = "NOVECIENTOS";
-        }
-        switch(d){
-            case 3 -> D = "TREINTA";
-            case 4 -> D = "CUARENTA";
-            case 5 -> D = "CINCUENTA";
-            case 6 -> D = "SESENTA";
-            case 7 -> D = "SETENTA";
-            case 8 -> D = "OCHENTA";
-            case 9 -> D = "NOVENTA";
-        }
+        else u=(int) ((soles%1000)%100);
+        cents =(int) Math.round((((soles%1000)%100)%1)*100);
+
         switch(u){
             case 1 -> U = "UN";
             case 2 -> U = "DOS";
@@ -119,7 +53,90 @@ public class TP01C3 {
             case 28 -> U = "VEINTIOCHO";
             case 29 -> U = "VEINTINUEVE";
         }
-        JOptionPane.showMessageDialog(null,MLL+ML+" "+C+" "+D+" Y "+U+" NUEVO(S) SOL(ES)");
+        switch(d){
+            case 3 -> {if(u>0) D="TREINTA Y ";else  D = "TREINTA";}
+            case 4 -> {if(u>0) D="CUARENTA Y ";else  D = "CUARENTA";}
+            case 5 -> {if(u>0) D="CINCUENTA Y ";else  D = "CINCUENTA";}
+            case 6 -> {if(u>0) D="SESENTA Y ";else  D = "SESENTA";}
+            case 7 -> {if(u>0) D="SETENTA Y ";else  D = "SETENTA";}
+            case 8 -> {if(u>0) D="OCHENTA Y ";else  D = "OCHENTA";}
+            case 9 -> {if(u>0) D="NOVENTA Y ";else D = "NOVENTA";}
+        }
+        switch(c){
+            case 1 -> {if (d != 0 || u != 0) C = "CIENTO "; else C = "CIEN";}
+            case 2 -> C = "DOCIENTOS";
+            case 3 -> C = "TRECIENTOS";
+            case 4 -> C = "CUATROCIENTOS";
+            case 5 -> C = "QUINIENTOS";
+            case 6 -> C = "SEICIENTOS";
+            case 7 -> C = "SETECIENTOS";
+            case 8 -> C = "OCHOCIENTOS";
+            case 9 -> C = "NOVECIENTOS";
+        }
+        switch (ml){
+            case 1 -> ML ="MIL";
+            case 2 -> ML ="DOS MIL";
+            case 3 -> ML ="TRES MIL";
+            case 4 -> ML ="CUATRO MIL";
+            case 5 -> ML ="CINCO MIL";
+            case 6 -> ML ="SEIS MIL";
+            case 7 -> ML ="SIETE MIL";
+            case 8 -> ML ="OCHO MIL";
+            case 9 -> ML ="NUEVE MIL";
+            case 10 -> ML = "DIEZ MIL";
+            case 11 -> ML = "ONCE MIL";
+            case 12 -> ML = "DOCE MIL";
+            case 13 -> ML = "TRECE MIL";
+            case 14 -> ML = "CATORCE MIL";
+            case 15 -> ML = "QUINCE MIL";
+            case 16 -> ML = "DIECISEIS MIL";
+            case 17 -> ML = "DIECISIETE MIL";
+            case 18 -> ML = "DIECIOCHO MIL";
+            case 19 -> ML = "DIECINUEVE MIL";
+            case 20 -> ML = "VEINTE MIL";
+            case 21 -> ML = "VEINTIUNO MIL";
+            case 22 -> ML = "VEINTIDOS MIL";
+            case 23 -> ML = "VEINTITRES MIL";
+            case 24 -> ML = "VEINTICUATRO MIL";
+            case 25 -> ML = "VEINTICINCO MIL";
+            case 26 -> ML = "VEINTISEIS MIL";
+            case 27 -> ML = "VEINTISIETE MIL";
+            case 28 -> ML = "VEINTIOCHO MIL";
+            case 29 -> ML = "VEINTINUEVE MIL";
+        }
+        switch (dml){
+            case 3 -> {if(ml>0) DML="TREINTA Y ";else  DML = "TREINTA";}
+            case 4 -> {if(ml>0) DML="CUARENTA Y ";else  DML = "CUARENTA";}
+            case 5 -> {if(ml>0) DML="CINCUENTA Y ";else  DML = "CINCUENTA";}
+            case 6 -> {if(ml>0) DML="SESENTA Y ";else  DML = "SESENTA";}
+            case 7 -> {if(ml>0) DML="SETENTA Y ";else  DML = "SETENTA";}
+            case 8 -> {if(ml>0) DML="OCHENTA Y ";else  DML = "OCHENTA";}
+            case 9 -> {if(ml>0) DML="NOVENTA Y ";else DML = "NOVENTA";}
+        }
+        switch(cml){
+            case 1 -> {if (dml != 0 || ml != 0) CML = "CIENTO "; else CML = "CIEN"; if (ml == 1) CML = "CIENTO UN ";}
+            case 2 -> CML = "DOCIENTOS";
+            case 3 -> CML = "TRECIENTOS";
+            case 4 -> CML = "CUATROCIENTOS";
+            case 5 -> CML = "QUINIENTOS";
+            case 6 -> CML = "SEICIENTOS";
+            case 7 -> CML = "SETECIENTOS";
+            case 8 -> CML = "OCHOCIENTOS";
+            case 9 -> CML = "NOVECIENTOS";
+        }
+        switch(mll){
+            case 1 -> MLL = "UN MILLÓN ";
+            case 2 -> MLL = "DOS MILLONES ";
+            case 3 -> MLL = "TRES MILLONES ";
+            case 4 -> MLL = "CUATRO MILLONES ";
+            case 5 -> MLL = "CINCO MILLONES ";
+            case 6 -> MLL = "SEIS MILLONES ";
+            case 7 -> MLL = "SIETE MILLONES ";
+            case 8 -> MLL = "OCHO MILLONES ";
+            case 9 -> MLL = "NUEVE MILLONES ";
+        }
+
+        JOptionPane.showMessageDialog(null,MLL+CML+" "+DML+ML+" "+C+" "+D+U+" CON "+cents+"/100 NUEVO(S) SOL(ES)");
 
 
     }

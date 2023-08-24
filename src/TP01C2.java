@@ -8,6 +8,7 @@ public class TP01C2 {
         double pRealS, pRealR,pRealP1,pRealP2,pRealM,pRealD, pImgS,pImgR,pImgP1,pImgP2,pImgM,pImgD;
         String complejoA, complejoB;
         String complejoRS, complejoRR,complejoRP1,complejoRP2,complejoRM,complejoRD;
+        //DecimalFormat f1 = new DecimalFormat("0");
         DecimalFormat f2 = new DecimalFormat("0.00");
         //Entrada
         a = Double.parseDouble(JOptionPane.showInputDialog(null, "Ingrese la parte REAL del PRIMER Numero Complejo", "Datos A",JOptionPane.QUESTION_MESSAGE));
